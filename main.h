@@ -8,6 +8,6 @@
 #include <sys/wait.h>
 
 char **input_to_cmd(char *line);
-void execute(char **cmd);
+void execute(char *filename, char **cmd, int line);
 
 #endif

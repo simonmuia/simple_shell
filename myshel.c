@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 	char *line, **cmd_args;
 	size_t length;
 	int string_length, line_count = 0;
+	char *filename =  argv[0];
 
 	while (1)
 	{
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
 				exit(EXIT_SUCCESS);
 			}
 			cmd_args = input_to_cmd(line);
-			execute(cmd_args);
+			execute(filename, cmd_args, line_count);
 		}
 		free(line);
 		if (!isatty(0))
