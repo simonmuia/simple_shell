@@ -8,25 +8,33 @@
  */
 int main(int argc, char **argv)
 {
-	char *line;
+	char *line, **cmd_args;
 	size_t length;
-	int string_length;
+	int string_length, line_count = 0;
 
 	while (1)
 	{
 		line = NULL;
 		length = 0;
 		string_length = 0;
-
+		line_count++;
 		write(1, "prompt> ", 8);
 		if (getline(&line, &length, stdin) != -1)
 		{
 			while (line[string_length] != '\0')
 				string_length++;
-			if (line[string_length - 1] == '\n')
-				line[string_length - 1] = '\0';
+			line[string_length - 1] = '\0';
+			if (strcmp(line, "exit") == 0)
+			{
+				free(line);
+				exit(EXIT_SUCCESS);
+			}
+			cmd_args = input_to_cmd(line);
+			execute(cmd_args);
 		}
 		free(line);
+		if (!isatty(0))
+			break;
 	}
 	return (0);
 }
