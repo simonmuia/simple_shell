@@ -15,6 +15,7 @@ void execute(char *filename, char **cmd, int line)
 		if (access(cmd[0], F_OK) == 0)
 			execve(cmd[0], cmd, NULL);
 		printf("%s: %d: %s: not found\n", filename, line, cmd[0]);
+		exit(EXIT_FAILURE);
 	}
 	else
 		wait(NULL);

@@ -37,5 +37,6 @@ int main(int argc, char **argv)
 		if (!isatty(0))
 			break;
 	}
+	free(cmd_args);
 	return (0);
 }
