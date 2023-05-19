@@ -12,6 +12,7 @@
 #define MAX_ARGS 100
 char **input_to_cmd(char *line);
 void execute(char *filename, char **cmd, int line);
+int _stcmp(const char *s1, const char *s2);
 
 #endif
 

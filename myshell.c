@@ -5,7 +5,7 @@
  * @argc: argument count
  * @argv: argument vector
  * Return: returns 0 on success
- */
+*/
 int main(int argc, char **argv)
 {
 	char *line, **cmd_args;
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 			while (line[string_length] != '\0')
 				string_length++;
 			line[string_length - 1] = '\0';
-			if (strcmp(line, "exit") == 0)
+			if (_stcmp(line, "exit") == 0)
 			{
 				free(line);
 				exit(EXIT_SUCCESS);
