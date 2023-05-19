@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 		else
 		{
 			free(line);
-			putchar(10);
+			_putchar(10);
 			break;
 		}
 		free(line);
