@@ -1,3 +1,4 @@
+#include <signal.h>
 #include "main.h"
 
 /**
@@ -20,7 +21,7 @@ int main(int argc, char **argv)
 		string_length = 0;
 		line_count++;
 		write(1, "prompt> ", 8);
-		if (getline(&line, &length, stdin) != -1)
+		if (getline(&line, &length, stdin) > 0)
 		{
 			while (line[string_length] != '\0')
 				string_length++;
@@ -32,6 +33,12 @@ int main(int argc, char **argv)
 			}
 			cmd_args = input_to_cmd(line);
 			execute(filename, cmd_args, line_count);
+		}
+		else
+		{
+			free(line);
+			putchar(10);
+			break;
 		}
 		free(line);
 		if (!isatty(0))

@@ -7,8 +7,8 @@
  */
 char **input_to_cmd(char *line)
 {
-	char **args;
 	int i = 0;
+	char **args;
 
 	args[i] = strtok(line, " ");
 	while (1)
