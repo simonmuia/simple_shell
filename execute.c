@@ -14,7 +14,15 @@ void execute(char *filename, char **cmd, int line)
 	{
 		if (access(cmd[0], F_OK) == 0)
 			execve(cmd[0], cmd, NULL);
-		printf("%s: %d: %s: not found\n", filename, line, cmd[0]);
+
+		write(1, filename, _strlen(filename));
+		write(1, ": ", 2);
+		/* check on how to convert inttostr function */
+		write(1, line, _strlen(line));
+		write(1, ": ", 2);
+		write(1, cmd[0], _strlen(cmd[0]));
+		write(1, ": ", 2);
+		write(1, "not found\n", 10);
 		exit(EXIT_FAILURE);
 	}
 	else

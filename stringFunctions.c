@@ -28,3 +28,19 @@ int _putchar(int c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * _strlen - calculates string length
+ * @str:string to calculate
+ * Return: number of chars
+ */
+
+int _strlen(const char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+		;
+
+	return (i);
+}
