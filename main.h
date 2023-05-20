@@ -11,9 +11,12 @@
 #define MAX_ARGS 100
 char **input_to_cmd(char *line);
 void execute(char *filename, char **cmd, int line);
-int _stcmp(const char *s1, const char *s2);
+int _strcmp(const char *s1, const char *s2);
 int _putchar(int c);
 int _strlen(const char *str);
-int intostr(int num, char *str, size_t size);
+void myprintf(char *format, ...);
+void print_int(int value);
+void exit_handler(char *line);
+int env_handler(char *line, char **env);
 
 #endif

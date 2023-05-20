@@ -4,9 +4,10 @@
  * main - the main function
  * @argc: argument count
  * @argv: argument vector
+ * @env: environment
  * Return: returns 0 on success
 */
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **env)
 {
 	char *line, **cmd_args;
 	size_t length;
@@ -25,13 +26,14 @@ int main(int argc, char **argv)
 			while (line[string_length] != '\0')
 				string_length++;
 			line[string_length - 1] = '\0';
-			if (_stcmp(line, "exit") == 0)
+			exit_handler(line);
+			if (env_handler(line, env))
+				continue;
+			if (line !=  "")
 			{
-				free(line);
-				exit(EXIT_SUCCESS);
+				cmd_args = input_to_cmd(line);
+				execute(filename, cmd_args, line_count);
 			}
-			cmd_args = input_to_cmd(line);
-			execute(filename, cmd_args, line_count);
 		}
 		else
 		{
@@ -42,7 +44,7 @@ int main(int argc, char **argv)
 		free(line);
 		if (!isatty(0))
 			break;
+		free(cmd_args);
 	}
-	free(cmd_args);
 	return (0);
 }
