@@ -13,7 +13,6 @@ char **input_to_cmd(char *line)
 	args = malloc(sizeof(char *) * MAX_ARGS);
 	if (args == NULL)
 	{
-		fprintf(stderr, "Failed to allocate memory for args \n");
 		exit(EXIT_FAILURE);
 	}
 	args[i] = strtok(line, " ");
