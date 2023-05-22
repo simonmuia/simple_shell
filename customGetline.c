@@ -5,12 +5,12 @@
  * @n: initial buffer size
  * @stream: pointer to FILE structure rep input stream
  * Return: reading position where next char is stored
-*/
+ */
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 {
-	if (lineptr == NULL ||  n == NULL || stream == NULL)
+	if (lineptr == NULL || n == NULL || stream == NULL)
 		return (-1);
-	
+
 	if (*lineptr == NULL)
 	{
 		*n = BUFFER_SIZE;
@@ -35,7 +35,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		}
 		(*lineptr)[pos++] = c;
 
-		if ( c == '\n')
+		if (c == '\n')
 			break;
 	}
 
@@ -46,6 +46,3 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 
 	return (pos);
 }
-
-
-

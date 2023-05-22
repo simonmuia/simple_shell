@@ -20,5 +20,6 @@ void myprintf(char *format, ...);
 void print_int(int value);
 void exit_handler(char *line);
 int env_handler(char *line, char **env);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif
