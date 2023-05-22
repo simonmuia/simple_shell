@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * main - the main function
  * @argc: argument count
@@ -7,7 +6,7 @@
  * @env: environment
  * Return: returns 0 on success
 */
-int main(int argc, char **argv, char **env)
+int main(int argc __attribute__((unused)), char **argv, char **env)
 {
 	char *line, **cmd_args;
 	size_t length;
@@ -29,7 +28,7 @@ int main(int argc, char **argv, char **env)
 			exit_handler(line);
 			if (env_handler(line, env))
 				continue;
-			if (line !=  "")
+			if (_strcmp(line, "") != 0)
 			{
 				cmd_args = input_to_cmd(line);
 				execute(filename, cmd_args, line_count);
@@ -37,14 +36,14 @@ int main(int argc, char **argv, char **env)
 		}
 		else
 		{
-			free(line);
+			if (line != NULL)
+				free(line);
 			_putchar(10);
 			break;
 		}
-		free(line);
+		free(cmd_args);
 		if (!isatty(0))
 			break;
-		free(cmd_args);
 	}
 	return (0);
 }
