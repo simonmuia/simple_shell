@@ -29,7 +29,7 @@ int main(int argc, char **argv, char **env)
 			exit_handler(line);
 			if (env_handler(line, env))
 				continue;
-			if (line !=  "")
+			if (_strcmp(line, "") != 0)
 			{
 				cmd_args = input_to_cmd(line);
 				execute(filename, cmd_args, line_count);

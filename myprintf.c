@@ -8,7 +8,7 @@
 void myprintf(char *format, ...)
 {
 	char *pointer = format, *string;
-	int value, num, divisor;
+	int value;
 	va_list argp;
 
 	va_start(argp, format);
