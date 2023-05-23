@@ -22,5 +22,8 @@ void exit_handler(char *line);
 int env_handler(char *line, char **env);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int path_handler(char **command, int flag);
+char *str_cpy(char *dest, const char *src);
+char *str_dup(const char *str);
+char *str_cat(char *dest, const char *src);
 
 #endif
