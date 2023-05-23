@@ -11,7 +11,7 @@ int path_handler(char **command, int flag)
 	pid_t pid;
 
 	char *env_path = getenv("PATH");
-	char *path = str_dup(env_path);
+	char *path = strdup(env_path);
 	char *directory = strtok(path, ":");
 
 	while (directory && flag == 0)
