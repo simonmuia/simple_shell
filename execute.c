@@ -22,29 +22,7 @@ void execute(char *filename, char **cmd, int line)
 	}
 	if (cmd[0] && found == 0)
 	{
-		char *env_path = getenv("PATH");
-		char *path = strdup(env_path);
-		char *directory = strtok(path, ":");
-
-		while (directory && found == 0)
-		{
-			char cmd_path[24];
-
-			strcpy(cmd_path, directory);
-			strcat(cmd_path, "/");
-			strcat(cmd_path, cmd[0]);
-			if (access(cmd_path, F_OK) == 0)
-			{
-				found = 1;
-				pid = fork();
-				if (pid == 0)
-					execve(cmd_path, cmd, NULL);
-				else
-					wait(NULL);
-			}
-			directory = strtok(NULL, ":");
-		}
-		free(path);
+		found = path_handler(cmd, found);
 	}
 	if (found == 0 && cmd[0])
 		myprintf("%s: %d: %s: not found\n", filename, line, cmd[0]);

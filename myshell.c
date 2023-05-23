@@ -36,7 +36,7 @@ int main(int argc __attribute__((unused)), char **argv, char **env)
 		}
 		else
 		{
-			if (line != NULL)
+			if (_strcmp(line, "") == 0)
 				free(line);
 			_putchar(10);
 			break;

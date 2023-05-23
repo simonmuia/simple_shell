@@ -28,6 +28,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		{
 			size_t new_size = *n + BUFFER_SIZE;
 			char *new_ptr = (char *)realloc(*lineptr, new_size);
+
 			if (new_ptr == NULL)
 				return (-1);
 			*lineptr = new_ptr;
