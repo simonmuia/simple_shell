@@ -9,7 +9,7 @@
 #include <signal.h>
 
 #define MAX_ARGS 100
-#define BUFFER_SIZE 128
+#define READ_SIZE 1024
 
 char **input_to_cmd(char *line);
 void execute(char *filename, char **cmd, int line);
@@ -20,7 +20,6 @@ void myprintf(char *format, ...);
 void print_int(int value);
 void exit_handler(char *line);
 int env_handler(char *line, char **env);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int path_handler(char **command, int flag);
 char *str_cpy(char *dest, const char *src);
 char *str_dup(const char *str);
