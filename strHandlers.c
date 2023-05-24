@@ -8,13 +8,16 @@
 
 char *str_dup(const char *str)
 {
+	size_t len;
+	char *dup;
+
 	if (str == NULL)
 		return (NULL);
 
-	size_t len = _strlen(str);
+	len = _strlen(str);
 
 	/* Allocate memory*/
-	char *dup = malloc((len + 1));
+	dup = malloc((len + 1));
 
 	if (dup != NULL)
 	{
@@ -33,10 +36,12 @@ char *str_dup(const char *str)
 
 char *str_cpy(char *dest, const char *src)
 {
+	char *dest_start;
+
 	if (dest == NULL || src == NULL)
 		return (NULL);
 
-	char *dest_start = dest;
+	dest_start = dest;
 
 	while (*src != '\0')
 		*dest_start++ = *src++;
@@ -56,8 +61,6 @@ char *str_cat(char *dest, const char *src)
 {
 	if (dest == NULL || src == NULL)
 		return (NULL);
-
-	char *dest_start = dest;
 
 	while (*dest != '\0')
 		dest++;
