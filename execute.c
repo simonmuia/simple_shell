@@ -25,6 +25,6 @@ void execute(char *filename, char **cmd, int line)
 		found = path_handler(cmd, found);
 	}
 	if (found == 0 && cmd[0])
-		myprintf("%s: %d: %s: not found\n", filename, line, cmd[0]);
+		myprintf("%s: %d: %s: No such file or directory\n", filename, line, cmd[0]);
 	free(cmd[0]);
 }
