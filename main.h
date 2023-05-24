@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <stddef.h>
 
 #define MAX_ARGS 100
 #define READ_SIZE 1024
@@ -25,5 +26,6 @@ int path_handler(char **command, int flag);
 char *str_cpy(char *dest, const char *src);
 char *str_dup(const char *str);
 char *str_cat(char *dest, char *src);
+void myrllc(void *pt, size_t osize, size_t nsize);
 
 #endif
