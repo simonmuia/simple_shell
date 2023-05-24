@@ -24,7 +24,6 @@ int main(int argc __attribute__((unused)), char **argv, char **env)
 		{
 			if (_strcmp(line, "") == 0)
 			{
-				free(line);
 				continue;
 			}
 			while (line[string_length] != '\0')
