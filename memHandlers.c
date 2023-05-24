@@ -6,13 +6,13 @@
  * @osize: old size
  * @nsize: new size
  * Return: block name
-*/
+ */
 
 void myrllc(void *pt, size_t osize, size_t nsize)
 {
 	void *npt = NULL;
 
-	if (nsize == 0 )
+	if (nsize == 0)
 	{
 		free(pt);
 		return (NULL);
@@ -22,7 +22,7 @@ void myrllc(void *pt, size_t osize, size_t nsize)
 	npt = malloc(nsize);
 	if (!npt)
 		return (NULL);
-	
+
 	mymemcpy(npt, pt, osize);
 	free(pt);
 
@@ -35,7 +35,7 @@ void myrllc(void *pt, size_t osize, size_t nsize)
  * @src: pointer to source mem block
  * @n: number of bytes to copy
  * Return: pointer to destination mem block
-*/
+ */
 
 void *mymemcpy(void *dest, const void *src, size_t n)
 {
@@ -44,10 +44,9 @@ void *mymemcpy(void *dest, const void *src, size_t n)
 
 	if (dest == NULL && src == NULL)
 		return (NULL);
-	
+
 	while (n--)
 		*d++ = *s++;
-	
-	return dest;
-}
 
+	return (dest);
+}
