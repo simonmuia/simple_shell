@@ -35,10 +35,12 @@ int _putchar(int c)
  * Return: number of chars
  */
 
-int _strlen(const char *str)
+size_t _strlen(const char *str)
 {
 	int i;
 
+	if (!str)
+		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 		;
 

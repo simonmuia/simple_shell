@@ -27,8 +27,7 @@ int main(int argc __attribute__((unused)), char **argv, char **env)
 				free(line);
 				continue;
 			}
-			while (line[string_length] != '\0')
-				string_length++;
+			string_length = _strlen(line);
 			line[string_length - 1] = '\0';
 			exit_handler(line);
 			if (env_handler(line, env))
