@@ -27,5 +27,6 @@ char *str_cpy(char *dest, const char *src);
 char *str_dup(const char *str);
 char *str_cat(char *dest, char *src);
 void myrllc(void *pt, size_t osize, size_t nsize);
+void *mymemcpy(void *dest, const void *src, size_t n);
 
 #endif
