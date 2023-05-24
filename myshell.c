@@ -20,14 +20,13 @@ int main(int argc __attribute__((unused)), char **argv, char **env)
 		string_length = 0;
 		line_count++;
 		write(1, "prompt> ", 8);
-		if (_getline(&line, &length, stdin) > 0)
+		if (getline(&line, &length, stdin) > 0)
 		{
 			if (_strcmp(line, "") == 0)
 			{
 				continue;
 			}
-			while (line[string_length] != '\0')
-				string_length++;
+			string_length = _strlen(line);
 			line[string_length - 1] = '\0';
 			exit_handler(line);
 			if (env_handler(line, env))

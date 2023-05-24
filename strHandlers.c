@@ -38,11 +38,9 @@ char *str_cpy(char *dest, const char *src)
 {
 	char *dest_start;
 
+	dest_start = dest;
 	if (dest == NULL || src == NULL)
 		return (NULL);
-
-	dest_start = dest;
-
 	while (*src != '\0')
 		*dest_start++ = *src++;
 
@@ -57,10 +55,9 @@ char *str_cpy(char *dest, const char *src)
  * Return: concat string
  */
 
-char *str_cat(char *dest, const char *src)
+char *str_cat(char *dest, char *src)
 {
-	if (dest == NULL || src == NULL)
-		return (NULL);
+	char *temp = dest;
 
 	while (*dest != '\0')
 		dest++;
@@ -69,6 +66,7 @@ char *str_cat(char *dest, const char *src)
 		*dest++ = *src++;
 
 	*dest++ = '\0';
+	*dest = *src;
 
-	return (dest);
+	return (temp);
 }
